@@ -490,7 +490,8 @@ char *yytext;
 #include <string.h>
 #include "pro2gra.tab.h"
 #include <stdio.h>
-#line 494 "lex.yy.c"
+#include "arbre.h"
+#line 495 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -677,9 +678,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 17 "pro2gra.lex"
+#line 18 "pro2gra.lex"
 
-#line 683 "lex.yy.c"
+#line 684 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -765,132 +766,132 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 18 "pro2gra.lex"
+#line 19 "pro2gra.lex"
 { /* ignore */ }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 20 "pro2gra.lex"
+#line 21 "pro2gra.lex"
 {yylval = strdup(yytext); return(CONST); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 21 "pro2gra.lex"
+#line 22 "pro2gra.lex"
 {yylval = strdup(yytext); return(VARIABLE);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 22 "pro2gra.lex"
+#line 23 "pro2gra.lex"
 {yylval = strdup(yytext); return(ENTIER); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 23 "pro2gra.lex"
+#line 24 "pro2gra.lex"
 {yylval = strdup(yytext); return(CONST_CHAR);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 24 "pro2gra.lex"
+#line 25 "pro2gra.lex"
 {return(PLUS); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 25 "pro2gra.lex"
+#line 26 "pro2gra.lex"
 {return(MOINS); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 26 "pro2gra.lex"
+#line 27 "pro2gra.lex"
 {return(FOIS); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 27 "pro2gra.lex"
+#line 28 "pro2gra.lex"
 {return(DIVISE); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 28 "pro2gra.lex"
+#line 29 "pro2gra.lex"
 {return(OUVRIR); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 29 "pro2gra.lex"
+#line 30 "pro2gra.lex"
 {return(FERMER); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 30 "pro2gra.lex"
+#line 31 "pro2gra.lex"
 {return(AFFECT); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 31 "pro2gra.lex"
+#line 32 "pro2gra.lex"
 {return(GT);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 32 "pro2gra.lex"
+#line 33 "pro2gra.lex"
 {return(GTE);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 33 "pro2gra.lex"
+#line 34 "pro2gra.lex"
 {return(LT);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 34 "pro2gra.lex"
+#line 35 "pro2gra.lex"
 {return(LTE);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 35 "pro2gra.lex"
+#line 36 "pro2gra.lex"
 {return(EQ);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 36 "pro2gra.lex"
+#line 37 "pro2gra.lex"
 {return(NE);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 37 "pro2gra.lex"
+#line 38 "pro2gra.lex"
 {}
 	YY_BREAK
 case 20:
 /* rule 20 can match eol */
 YY_RULE_SETUP
-#line 38 "pro2gra.lex"
+#line 39 "pro2gra.lex"
 {}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 39 "pro2gra.lex"
+#line 40 "pro2gra.lex"
 {return(AND);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 40 "pro2gra.lex"
+#line 41 "pro2gra.lex"
 {return(EOL);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 41 "pro2gra.lex"
+#line 42 "pro2gra.lex"
 {return(SEP);}
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 42 "pro2gra.lex"
+#line 43 "pro2gra.lex"
 {;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 43 "pro2gra.lex"
+#line 44 "pro2gra.lex"
 ECHO;
 	YY_BREAK
-#line 894 "lex.yy.c"
+#line 895 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1888,7 +1889,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 43 "pro2gra.lex"
+#line 44 "pro2gra.lex"
 
 
 

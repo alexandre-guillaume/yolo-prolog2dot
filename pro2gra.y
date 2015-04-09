@@ -58,7 +58,7 @@ corps2 : atom {$$ = $1;}
 | affectation {$$ = $1;}
 ;
 
-compare : operation operateur operation {$$ = racine_gauche(racine_droite(create_node_int(TCMP, $2), $3), $1);}
+compare : operation operateur operation {$$ = racine_gauche(racine_droite(create_node_int(TCMP, $2), $3),(int)$1);}
 ;
 
 affectation : VARIABLE AFFECT operation {$$ = racine_gauche(racine_droite(create_node(TAFFECT), $3), create_node_str(TVAR, $1));}
@@ -69,7 +69,7 @@ atom : argument OUVRIR params FERMER {$$ = racine_gauche(racine_droite(create_no
 |argument OUVRIR FERMER {racine_gauche(create_node(TATOM), $1);}
 ;
 
-params : argument AND params {arite += 1; $$ = racine_gauche(racine_droite(create_node_int(TLISTE_ARG, arite), $1), $3);}
+params : argument AND params {arite += 1; $$ = racine_gauche(racine_droite(create_node_int(TLISTE_ARG, arite),(int) $1), $3);}
 | argument {arite = 1; $$ = racine_droite(create_node_int(TLISTE_ARG,arite),$1);}
 ;
 
@@ -98,7 +98,7 @@ argument : ENTIER {$$ = create_node_int(TCONST_INT,$1);}
 ;
 
 e2 : VARIABLE {$$ = create_node_str(TVAR,$1);}
-| ENTIER {$$ = create_node_int(TCONST_INT,$1);}
+| ENTIER {$$ = create_node_int(TCONST_INT,(int)$1);}
 ;
 
 %%

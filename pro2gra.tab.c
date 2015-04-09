@@ -1368,7 +1368,7 @@ yyreduce:
 
   case 18:
 #line 61 "pro2gra.y" /* yacc.c:1646  */
-    {(yyval) = racine_gauche(racine_droite(create_node_int(TCMP, (yyvsp[-1])), (yyvsp[0])), (yyvsp[-2]));}
+    {(yyval) = racine_gauche(racine_droite(create_node_int(TCMP, (yyvsp[-1])), (yyvsp[0])),(int)(yyvsp[-2]));}
 #line 1373 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1398,7 +1398,7 @@ yyreduce:
 
   case 23:
 #line 72 "pro2gra.y" /* yacc.c:1646  */
-    {arite += 1; (yyval) = racine_gauche(racine_droite(create_node_int(TLISTE_ARG, arite), (yyvsp[-2])), (yyvsp[0]));}
+    {arite += 1; (yyval) = racine_gauche(racine_droite(create_node_int(TLISTE_ARG, arite),(int) (yyvsp[-2])), (yyvsp[0]));}
 #line 1403 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
@@ -1512,7 +1512,7 @@ yyreduce:
 
   case 42:
 #line 101 "pro2gra.y" /* yacc.c:1646  */
-    {(yyval) = create_node_int(TCONST_INT,(yyvsp[0]));}
+    {(yyval) = create_node_int(TCONST_INT,(int)(yyvsp[0]));}
 #line 1517 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 

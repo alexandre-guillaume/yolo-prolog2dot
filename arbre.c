@@ -37,7 +37,7 @@ tree create_node(typenode type) {
 }
 
 void affiche_arbre(tree a) {
-	printf("incroyable\n");
+	printf("racine\n");
 	if (a != NULL) {
 			printf("type = %d\n",a->type);
 		
@@ -49,9 +49,11 @@ void affiche_arbre(tree a) {
 		}
 
 		if( a->gauche != NULL) {
+			printf("sous arbre gauche\n");
 			affiche_arbre(a->gauche);
 		}
 		if (a->droite != NULL) {
+			printf("sous arbre droit\n");
 			affiche_arbre(a->droite);
 		}	
 	}

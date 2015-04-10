@@ -9,8 +9,9 @@
 int yyparse();
 // fonction externes 
 int yylex(void);
-extern void yyerror(char *s);
-
+extern void yyerror(const char *s);
+extern int yylineno;
+extern char yytext[8192];
 extern FILE * yyin;
 FILE * out;
 
@@ -91,7 +92,7 @@ operateur: GT {$$ = TGT ;}
 | NE {$$ = TNE;}
 ;
 
-argument : ENTIER {$$ = create_node_int(TCONST_INT,$1);}
+argument : ENTIER {$$ = create_node_int(TCONST_INT,(int)$1);}
 | CONST {$$ = create_node_str(TCONST,$1);}
 | VARIABLE {$$ = create_node_str(TVAR,$1);}
 | CONST_CHAR {$$ = create_node_str(TCONST_STR,$1);}
@@ -109,27 +110,28 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
 	}
 	yyin = fopen(argv[1], "r");
-	out = fopen(argv[2], "w");
+	//out = fopen(argv[2], "w");
 	if(yyin == NULL) {
 		printf("erreur fichier %s \n",argv[1]);
 		exit(EXIT_FAILURE);		
 	}
-	if (out == NULL){
-		printf("Impossible d'écrire dans %s\n", argv[2]);
-		exit(EXIT_FAILURE);
-	}
+	//if (out == NULL){
+	//	printf("Impossible d'écrire dans %s\n", argv[2]);
+	//	exit(EXIT_FAILURE);
+	//}
 	if(yyparse()){
 	printf("erreur parsing\n");
 	exit(EXIT_FAILURE);
+	}
 	affiche_arbre(arbre);
 	fclose(yyin);
 	memory_free(arbre);
 
-	}
+	
 	return 0;
 }
 
-void yyerror(char *s) {
-	printf("yyerror : %s\n",s);
+void yyerror(const char *s) {
+	printf("yyerror : %s at ligne %d : %s \n",s,yylineno,yytext);
 	exit(EXIT_FAILURE);
 }

@@ -74,15 +74,16 @@
 int yyparse();
 // fonction externes 
 int yylex(void);
-extern void yyerror(char *s);
-
+extern void yyerror(const char *s);
+extern int yylineno;
+extern char yytext[8192];
 extern FILE * yyin;
 FILE * out;
 
 int arite = 0;
 
 
-#line 86 "pro2gra.tab.c" /* yacc.c:339  */
+#line 87 "pro2gra.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -156,7 +157,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 160 "pro2gra.tab.c" /* yacc.c:358  */
+#line 161 "pro2gra.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -455,11 +456,11 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    30,    30,    32,    33,    34,    37,    38,    41,    42,
-      45,    48,    49,    52,    53,    56,    57,    58,    61,    64,
-      67,    68,    69,    72,    73,    76,    77,    78,    81,    82,
-      83,    86,    87,    88,    89,    90,    91,    94,    95,    96,
-      97,   100,   101
+       0,    31,    31,    33,    34,    35,    38,    39,    42,    43,
+      46,    49,    50,    53,    54,    57,    58,    59,    62,    65,
+      68,    69,    70,    73,    74,    77,    78,    79,    82,    83,
+      84,    87,    88,    89,    90,    91,    92,    95,    96,    97,
+      98,   101,   102
 };
 #endif
 
@@ -1271,253 +1272,253 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 30 "pro2gra.y" /* yacc.c:1646  */
+#line 31 "pro2gra.y" /* yacc.c:1646  */
     {arbre = (yyvsp[0]);}
-#line 1277 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1278 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 32 "pro2gra.y" /* yacc.c:1646  */
+#line 33 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TLISTE),(yyvsp[-1])),(yyvsp[0]));}
-#line 1283 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1284 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 33 "pro2gra.y" /* yacc.c:1646  */
+#line 34 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_droite(create_node(TLISTE),(yyvsp[0]));}
-#line 1289 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1290 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 34 "pro2gra.y" /* yacc.c:1646  */
+#line 35 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(create_node(TLISTE),(yyvsp[0]));}
-#line 1295 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1296 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 37 "pro2gra.y" /* yacc.c:1646  */
+#line 38 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TLISTE_FAIT),(yyvsp[0])),(yyvsp[-1]));}
-#line 1301 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1302 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 38 "pro2gra.y" /* yacc.c:1646  */
+#line 39 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_droite(create_node(TLISTE_FAIT),(yyvsp[0]));}
-#line 1307 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1308 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 41 "pro2gra.y" /* yacc.c:1646  */
+#line 42 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TLISTE_REGLE),(yyvsp[-1])),(yyvsp[0]));}
-#line 1313 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1314 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 42 "pro2gra.y" /* yacc.c:1646  */
+#line 43 "pro2gra.y" /* yacc.c:1646  */
     {racine_droite(create_node(TLISTE_REGLE),(yyvsp[0]));}
-#line 1319 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1320 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 45 "pro2gra.y" /* yacc.c:1646  */
+#line 46 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[-1]);}
-#line 1325 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1326 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 48 "pro2gra.y" /* yacc.c:1646  */
+#line 49 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TREGLE), (yyvsp[-1])), (yyvsp[-3]));}
-#line 1331 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1332 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 49 "pro2gra.y" /* yacc.c:1646  */
+#line 50 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_droite(create_node(TREGLE), (yyvsp[-1]));}
-#line 1337 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1338 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 52 "pro2gra.y" /* yacc.c:1646  */
+#line 53 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TCORPS), (yyvsp[-2])), (yyvsp[0]));}
-#line 1343 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1344 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 53 "pro2gra.y" /* yacc.c:1646  */
+#line 54 "pro2gra.y" /* yacc.c:1646  */
     {racine_droite(create_node(TCORPS), (yyvsp[0]));}
-#line 1349 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1350 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 56 "pro2gra.y" /* yacc.c:1646  */
+#line 57 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]);}
-#line 1355 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1356 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 57 "pro2gra.y" /* yacc.c:1646  */
+#line 58 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]);}
-#line 1361 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1362 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 58 "pro2gra.y" /* yacc.c:1646  */
+#line 59 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]);}
-#line 1367 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1368 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 61 "pro2gra.y" /* yacc.c:1646  */
+#line 62 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node_int(TCMP, (yyvsp[-1])), (yyvsp[0])),(int)(yyvsp[-2]));}
-#line 1373 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1374 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 64 "pro2gra.y" /* yacc.c:1646  */
+#line 65 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TAFFECT), (yyvsp[0])), create_node_str(TVAR, (yyvsp[-2])));}
-#line 1379 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1380 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 67 "pro2gra.y" /* yacc.c:1646  */
+#line 68 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TATOM), (yyvsp[-3])), (yyvsp[-1]));}
-#line 1385 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1386 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 68 "pro2gra.y" /* yacc.c:1646  */
+#line 69 "pro2gra.y" /* yacc.c:1646  */
     {racine_gauche(create_node(TATOM), (yyvsp[0]));}
-#line 1391 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1392 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 69 "pro2gra.y" /* yacc.c:1646  */
+#line 70 "pro2gra.y" /* yacc.c:1646  */
     {racine_gauche(create_node(TATOM), (yyvsp[-2]));}
-#line 1397 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1398 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 72 "pro2gra.y" /* yacc.c:1646  */
+#line 73 "pro2gra.y" /* yacc.c:1646  */
     {arite += 1; (yyval) = racine_gauche(racine_droite(create_node_int(TLISTE_ARG, arite),(int) (yyvsp[-2])), (yyvsp[0]));}
-#line 1403 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1404 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 73 "pro2gra.y" /* yacc.c:1646  */
+#line 74 "pro2gra.y" /* yacc.c:1646  */
     {arite = 1; (yyval) = racine_droite(create_node_int(TLISTE_ARG,arite),(yyvsp[0]));}
-#line 1409 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1410 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 76 "pro2gra.y" /* yacc.c:1646  */
+#line 77 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TPLUS), (yyvsp[-2])), (yyvsp[0]));}
-#line 1415 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1416 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 77 "pro2gra.y" /* yacc.c:1646  */
+#line 78 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TMOINS), (yyvsp[-2])), (yyvsp[0]));}
-#line 1421 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1422 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 78 "pro2gra.y" /* yacc.c:1646  */
+#line 79 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]);}
-#line 1427 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1428 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 81 "pro2gra.y" /* yacc.c:1646  */
+#line 82 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TMULT), (yyvsp[-2])), (yyvsp[0]));}
-#line 1433 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1434 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 82 "pro2gra.y" /* yacc.c:1646  */
+#line 83 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = racine_gauche(racine_droite(create_node(TDIV), (yyvsp[-2])), (yyvsp[0]));}
-#line 1439 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1440 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 83 "pro2gra.y" /* yacc.c:1646  */
+#line 84 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]);}
-#line 1445 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1446 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 86 "pro2gra.y" /* yacc.c:1646  */
+#line 87 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TGT ;}
-#line 1451 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1452 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 87 "pro2gra.y" /* yacc.c:1646  */
+#line 88 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TGTE;}
-#line 1457 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1458 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 88 "pro2gra.y" /* yacc.c:1646  */
+#line 89 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TLT;}
-#line 1463 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1464 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 89 "pro2gra.y" /* yacc.c:1646  */
+#line 90 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TLTE;}
-#line 1469 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1470 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 90 "pro2gra.y" /* yacc.c:1646  */
+#line 91 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TEQ;}
-#line 1475 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1476 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 91 "pro2gra.y" /* yacc.c:1646  */
+#line 92 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = TNE;}
-#line 1481 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1482 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 94 "pro2gra.y" /* yacc.c:1646  */
-    {(yyval) = create_node_int(TCONST_INT,(yyvsp[0]));}
-#line 1487 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 95 "pro2gra.y" /* yacc.c:1646  */
+    {(yyval) = create_node_int(TCONST_INT,(int)(yyvsp[0]));}
+#line 1488 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 95 "pro2gra.y" /* yacc.c:1646  */
+#line 96 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = create_node_str(TCONST,(yyvsp[0]));}
-#line 1493 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1494 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 96 "pro2gra.y" /* yacc.c:1646  */
+#line 97 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = create_node_str(TVAR,(yyvsp[0]));}
-#line 1499 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1500 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 97 "pro2gra.y" /* yacc.c:1646  */
+#line 98 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = create_node_str(TCONST_STR,(yyvsp[0]));}
-#line 1505 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1506 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 100 "pro2gra.y" /* yacc.c:1646  */
+#line 101 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = create_node_str(TVAR,(yyvsp[0]));}
-#line 1511 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1512 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 101 "pro2gra.y" /* yacc.c:1646  */
+#line 102 "pro2gra.y" /* yacc.c:1646  */
     {(yyval) = create_node_int(TCONST_INT,(int)(yyvsp[0]));}
-#line 1517 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1518 "pro2gra.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1521 "pro2gra.tab.c" /* yacc.c:1646  */
+#line 1522 "pro2gra.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1745,7 +1746,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 104 "pro2gra.y" /* yacc.c:1906  */
+#line 105 "pro2gra.y" /* yacc.c:1906  */
 
 
 int main(int argc, char *argv[]) {
@@ -1754,27 +1755,28 @@ int main(int argc, char *argv[]) {
 	exit(EXIT_FAILURE);
 	}
 	yyin = fopen(argv[1], "r");
-	out = fopen(argv[2], "w");
+	//out = fopen(argv[2], "w");
 	if(yyin == NULL) {
 		printf("erreur fichier %s \n",argv[1]);
 		exit(EXIT_FAILURE);		
 	}
-	if (out == NULL){
-		printf("Impossible d'écrire dans %s\n", argv[2]);
-		exit(EXIT_FAILURE);
-	}
+	//if (out == NULL){
+	//	printf("Impossible d'écrire dans %s\n", argv[2]);
+	//	exit(EXIT_FAILURE);
+	//}
 	if(yyparse()){
 	printf("erreur parsing\n");
 	exit(EXIT_FAILURE);
+	}
 	affiche_arbre(arbre);
 	fclose(yyin);
 	memory_free(arbre);
 
-	}
+	
 	return 0;
 }
 
-void yyerror(char *s) {
-	printf("yyerror : %s\n",s);
+void yyerror(const char *s) {
+	printf("yyerror : %s at ligne %d : %s \n",s,yylineno,yytext);
 	exit(EXIT_FAILURE);
 }
